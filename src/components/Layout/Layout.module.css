@@ -1,0 +1,18 @@
+.layoutContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 16px);
+}
+
+.content {
+    flex: 1;
+}
+
+.rowCont {
+    display: flex;
+}
+
+.colCont {
+    display: flex;
+    flex-direction: column;
+}
