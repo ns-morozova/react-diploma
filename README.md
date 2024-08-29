@@ -1,4 +1,4 @@
-status
+[![portfolio](https://github.com/ns-morozova/react-diploma/actions/workflows/master.yml/badge.svg)](https://github.com/ns-morozova/react-diploma/actions/workflows/master.yml)
 
 DIPLOM
 
