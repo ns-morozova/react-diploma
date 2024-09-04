@@ -34,6 +34,10 @@
   list-style-type: none;
 }
 
+.navItemSelect {
+  font-weight: bold;
+}
+
 .headerControlsPics {
   display: flex;
   justify-content: space-between;
