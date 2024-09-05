@@ -1,0 +1,21 @@
+.categories {
+    margin-bottom: 2em;
+}
+  
+.categoryList {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 18px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+  
+.categoryItem {
+    cursor: pointer;
+}
+  
+.categoryItem.active {
+    color: red;
+}
