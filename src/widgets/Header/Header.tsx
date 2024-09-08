@@ -37,7 +37,7 @@ export const Header: React.FC = () => {
                                     );
                                 })}
                             </ul>
-                            <div>
+                            <div className={styles.headerControls}>
                                 <div className={styles.headerControlsPics}>
                                     <div data-id="search-expander" className={`${styles.headerControlsPic} ${styles.headerControlsSearch}`}>
 

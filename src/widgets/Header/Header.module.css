@@ -30,12 +30,22 @@
 
 .navList {
   display: flex;
+  align-items: center;
   gap: 20px;
   list-style-type: none;
 }
 
+.navItem {
+  height: max-content;
+}
+
 .navItemSelect {
   font-weight: bold;
+}
+
+.headerControls {
+  display: flex;
+  align-items: center;
 }
 
 .headerControlsPics {
