@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Loader } from '../Loader';
+
 import styles from './Categories.module.css';
 
 interface Category {
@@ -36,7 +38,7 @@ export const Categories: React.FC<CategoriesProps> = ({ selectedCategory, onSele
   return (
     <section className={styles.categories}>
       {loadingCategories ? (
-        <div>Loading categories...</div>
+        <Loader />
       ) : (
         <ul className={styles.categoryList}>
           {categories.map(category => (

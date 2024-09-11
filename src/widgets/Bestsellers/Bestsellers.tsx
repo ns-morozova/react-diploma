@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ProductCard } from '../../features/ProductCard';
+import { Loader } from '../../features/Loader';
 
 import styles from './Bestsellers.module.css';
 
@@ -40,7 +41,7 @@ interface BestsellerItem {
       <section className={styles.bestsellers}>
         <h2 className={styles.titleSection}>Хиты продаж!</h2>
         {loading ? (
-          <div className={styles.loader}>Loading bestsellers...</div>
+          <Loader />
         ) : (
           <div className={styles.bestsellerItems}>
             {bestsellers.map((item) => (

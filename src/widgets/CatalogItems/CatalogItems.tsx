@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ProductCard } from '../../features/ProductCard';
+import { Loader } from '../../features/Loader';
 
 import styles from './CatalogItems.module.css';
 
@@ -58,7 +59,7 @@ export const CatalogItems: React.FC<CatalogItemsProps> = ({ selectedCategory }) 
   return (
     <section className={styles.catalog}>
       {loadingItems ? (
-        <div>Loading catalog...</div>
+        <Loader />
       ) : (
         items.length > 0 && (
           <div className={styles.catalogItems}>
