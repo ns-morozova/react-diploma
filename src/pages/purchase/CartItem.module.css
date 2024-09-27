@@ -1,0 +1,20 @@
+.nameItem {
+    color: gray;
+}
+
+.buttonDelete {
+    padding: 5px 10px;
+    background: none;
+    color: #dc3642;
+    border: 1px #dc3642 solid;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 200ms;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.buttonDelete:hover {
+    background: #dc3642;
+    color: white;
+}

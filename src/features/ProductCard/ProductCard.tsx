@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 import styles from './ProductCard.module.css';
 
 interface ProductCardProps {
@@ -11,7 +10,12 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ id, title, price, imageUrl }) => {
+  const navigate = useNavigate();
   const formattedPrice = price.toLocaleString('ru-RU');
+
+  const handleOrderClick = () => {
+    navigate(`/catalog/${id}`, { state: { price } });
+  };
 
   return (
     <div className={styles.productCard}>
@@ -19,9 +23,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ id, title, price, imag
       <div className={styles.productInfo}>
         <h3 className={styles.productTitle}>{title}</h3>
         <p className={styles.productPrice}>{formattedPrice} ₽</p>
-        <Link to={`/catalog/${id}`} className={styles.orderButton}>
+        <button onClick={handleOrderClick} className={styles.orderButton}>
           Заказать
-        </Link>
+        </button>
       </div>
     </div>
   );

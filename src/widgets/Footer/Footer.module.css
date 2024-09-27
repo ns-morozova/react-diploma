@@ -1,5 +1,5 @@
 .container {
-    background: #f8f9fd;
+  background: #f8f9fd;
 }
 
 .footer {
@@ -13,26 +13,26 @@
 }
 
 .footerSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 12px;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+  margin: 0;
 }
 
 .title {
-    margin: 0;
-    font-size: 16px;
+  margin: 0;
+  font-size: 16px;
 }
 
 .navList {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 5px 0 0 10px;
-    margin: 0;
-    font-size: 14px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 5px 0 0 10px;
+  margin: 0;
+  font-size: 14px;
 }
 
 .footerPayment {
@@ -42,7 +42,6 @@
 .footerPay {
   display: flex;
   justify-content: space-between;
-  /* margin: 12px auto 0; */
 }
 
 .footerPaySystems {
@@ -83,10 +82,6 @@
   background-position: -52px -46px;
 }
 
-/* .footerSocialLinks {
-  margin-top: 10px;
-} */
-
 .footerSocialLink {
   display: inline-block;
   width: 36px;
@@ -118,10 +113,7 @@
 }
 
 .footerContacts {
-    /* display: flex;
-    flex-direction: column;
-    align-items: flex-end; */
-    align-items: flex-end;
+  align-items: flex-end;
 }
 
 .contactsList {

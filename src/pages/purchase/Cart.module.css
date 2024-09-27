@@ -1,0 +1,86 @@
+.cartContainer {
+  padding: 20px;
+}
+
+.title {
+  font-size: 28px;
+  text-align: center;
+  margin: 0;
+}
+
+.cartTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 50px 0;
+}
+
+.cartTable th,
+.cartTable td {
+  border: 1px solid #ddd;
+  padding: 15px;
+}
+
+.cartTable th {
+  text-align: left;
+}
+
+.totalCost {
+  text-align: right;
+}
+
+.orderForm {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px #ddd solid;
+  border-radius: 5px;
+}
+
+.orderForm div {
+  margin-bottom: 10px;
+}
+
+.input {
+  border: 1px #ddd solid;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.orderForm label {
+  display: block;
+}
+
+.orderForm input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+.orderForm input[type="checkbox"] {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.button {
+  padding: 5px 10px;
+  background: none;
+  color: gray;
+  border: 1px gray solid;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 200ms;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: rgb(244, 244, 244);
+  transition: 200ms;
+}
+
+.disabledButton {
+  opacity: 50%;
+  cursor: not-allowed;
+}

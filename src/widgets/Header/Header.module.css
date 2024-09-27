@@ -19,7 +19,7 @@
 .navbar {
   display: flex;
   padding: 15px;
-  /* background: #f8f9fd; */
+  background: #f8f9fd;
 }
 
 .collapse {
@@ -98,8 +98,8 @@
 
 .headerControlsSearchForm {
   position: absolute;
-  right: 65px;
-  top: calc(50% - 19px);
+  right: 80px;
+  top: 35px;
   display: block;
   width: 233px;
   height: 38px;

@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { Banner } from '../../widgets/Banner';
 import { Loader } from '../../features/Loader';
-
 import styles from './ProductPage.module.css';
+import { useDispatch } from 'react-redux';
+import { addItemCart } from '../../store/slices/cartSlice';
+import { ICartItem } from '../purchase/cartItem';
+
+interface LocationState {
+  price: number;
+}
 
 interface ProductDetails {
   id: number;
@@ -16,6 +22,7 @@ interface ProductDetails {
   material: string;
   season: string;
   reason: string;
+  price: number;
   sizes: { size: string; available: boolean }[];
 }
 
@@ -26,6 +33,10 @@ export const ProductPage: React.FC = () => {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const state = location.state as LocationState;
+
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -44,8 +55,15 @@ export const ProductPage: React.FC = () => {
 
   const handleAddToCart = () => {
     if (selectedSize) {
-      // Логика добавления в корзину (например, через Redux)
-      navigate('/cart.html');
+      const data: ICartItem = {
+        id: Number(id),
+        name: String(product?.title),
+        size: selectedSize,
+        quantity: quantity,
+        price: state.price,
+          };
+      dispatch(addItemCart(data));
+      navigate('/cart');
     }
   };
 
@@ -94,6 +112,10 @@ export const ProductPage: React.FC = () => {
                 <td>Повод</td>
                 <td>{product.reason || '-'}</td>
               </tr>
+              <tr>
+                <td>Цена</td>
+                <td>{state.price?state.price.toLocaleString('ru-RU')+' руб.':'-'}</td>
+              </tr>
             </tbody>
           </table>
 
@@ -119,7 +141,7 @@ export const ProductPage: React.FC = () => {
                 <div className={styles.quantitySelector}>
                   <button
                     className={styles.quantityButton}
-                    onClick={() => setQuantity(prev => Math.max(1, prev - 1))} // Уменьшение количества, минимум 1
+                    onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
                     disabled={quantity === 1}
                   >
                     -
@@ -127,7 +149,7 @@ export const ProductPage: React.FC = () => {
                   <span className={styles.quantityDisplay}>{quantity}</span>
                   <button
                     className={styles.quantityButton}
-                    onClick={() => setQuantity(prev => Math.min(10, prev + 1))} // Увеличение количества, максимум 10
+                    onClick={() => setQuantity(prev => Math.min(10, prev + 1))}
                     disabled={quantity === 10}
                   >
                     +

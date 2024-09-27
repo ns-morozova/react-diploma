@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ProductCard } from '../../features/ProductCard';
 import { Loader } from '../../features/Loader';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 import styles from './CatalogItems.module.css';
 
@@ -21,16 +23,18 @@ export const CatalogItems: React.FC<CatalogItemsProps> = ({ selectedCategory }) 
   const [offset, setOffset] = useState(0);
   const [loadingItems, setLoadingItems] = useState(false);
   const [loadMoreAvailable, setLoadMoreAvailable] = useState(true);
+  const { search } = useSelector((state: RootState) => state.search);
 
   useEffect(() => {
     const fetchItems = async () => {
       setLoadingItems(true);
       try {
-        const categoryQuery = selectedCategory ? `?categoryId=${selectedCategory}` : '';
-        const response = await axios.get(`https://react-diploma-backend-1ota.onrender.com/api/items${categoryQuery}`);
+        const categoryQuery = selectedCategory ? `&categoryId=${selectedCategory}` : '';
+        const searchQuery = search ? `&q=${search}` : '';
+        const response = await axios.get(`https://react-diploma-backend-1ota.onrender.com/api/items?offset=0${categoryQuery}${searchQuery}`);
         setItems(response.data);
         setLoadMoreAvailable(response.data.length >= 6);
-        setOffset(6); // Reset offset after new category selection
+        setOffset(6);
       } catch (error) {
         console.error('Error fetching catalog items:', error);
       } finally {
@@ -39,13 +43,14 @@ export const CatalogItems: React.FC<CatalogItemsProps> = ({ selectedCategory }) 
     };
 
     fetchItems();
-  }, [selectedCategory]);
+  }, [selectedCategory, search]);
 
   const loadMoreItems = async () => {
     setLoadingItems(true);
     try {
       const categoryQuery = selectedCategory ? `&categoryId=${selectedCategory}` : '';
-      const response = await axios.get(`https://react-diploma-backend-1ota.onrender.com/api/items?offset=${offset}${categoryQuery}`);
+      const searchQuery = search ? `&q=${search}` : '';
+      const response = await axios.get(`https://react-diploma-backend-1ota.onrender.com/api/items?offset=${offset}${categoryQuery}${searchQuery}`);
       setItems(prevItems => [...prevItems, ...response.data]);
       setOffset(offset + 6);
       setLoadMoreAvailable(response.data.length >= 6);

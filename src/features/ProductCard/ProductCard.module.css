@@ -44,7 +44,7 @@
     cursor: pointer;
     transition: 200ms;
     cursor: pointer;
-    margin-top: auto; /* Кнопка всегда будет прижиматься к нижней части карточки */
+    margin-top: auto;
   }
   
   .orderButton:hover {

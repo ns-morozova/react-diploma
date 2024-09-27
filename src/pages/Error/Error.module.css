@@ -1,0 +1,10 @@
+.titleError {
+    text-align: center;
+    font-size: 32px;
+}
+
+.textError {
+    text-align: center;
+    font-size: 28px;
+    color: #dc3642;
+}
