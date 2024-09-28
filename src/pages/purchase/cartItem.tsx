@@ -28,15 +28,15 @@ interface CartItemProps {
     const formattedTotalPrice = (data.price * data.quantity).toLocaleString('ru-RU');
   
     return (
-              <tr key={data.id}>
-                <td className={styles.nameItem}>{data.name}</td>
-                <td>{data.size}</td>
-                <td>{data.quantity}</td>
-                <td>{formattedPrice} руб.</td>
-                <td>{formattedTotalPrice} руб.</td>
-                <td>
-                  <button onClick={() => handleRemoveItem(data.id)} className={styles.buttonDelete}>Удалить</button>
-                </td>
-              </tr>
+      <tr key={data.id}>
+        <td className={styles.nameItem}>{data.name}</td>
+        <td>{data.size}</td>
+        <td>{data.quantity}</td>
+        <td>{formattedPrice} руб.</td>
+        <td>{formattedTotalPrice} руб.</td>
+        <td>
+          <button onClick={() => handleRemoveItem(data.id)} className={styles.buttonDelete}>Удалить</button>
+        </td>
+      </tr>
       );
     };  
